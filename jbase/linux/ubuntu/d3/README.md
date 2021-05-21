@@ -8,6 +8,8 @@ From this directory:
 
 ``` text
 docker build --rm -t jbase-5.8-ubuntu-20.04-d3 .
-docker run --name u20_jbase_d3 -h u20_jbase_d3 -p 22:22 -d -it jbase-5.8-ubuntu-20.04-d3
+docker run --name u20_jbase_d3 -h u20_jbase_d3 -p 22:22 -p 20002:20002 -d -it jbase-5.8-ubuntu-20.04-d3
 docker exec -it u20_jbase_d3 bash
 ```
+
+You can also login using ssh as user `jbaseadm`, password `jbase`.
