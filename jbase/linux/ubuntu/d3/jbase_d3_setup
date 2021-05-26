@@ -1,0 +1,29 @@
+PA
+* Make SYSTEM & JBASEADM case-insensitive
+jrf -K -U -V SYSTEM
+jrf -K -U -V MD
+* Create DM as synonym for JBASEADM, but with d3 emulation
+COPY FROM SYSTEM TO SYSTEM JBASEADM,DM (O
+ED SYSTEM DM
+DATA 21
+DATA R/jbase/d3
+DATA FI
+* Create PEQS file pointer
+ED . PEQS
+DATA DE99
+DATA I
+DATA JBC__SOB JediInitSUB PEQSJEDI PEQS
+DATA
+DATA FI
+* Create RUNTIME-ERRORS file pointer
+ED MD RUNTIME-ERRORS
+DATA DE99
+DATA I
+DATA F
+DATA /opt/jbase/global/runtime-errors
+DATA /opt/jbase/global/runtime-errors]D
+DATA
+DATA FI
+* Create PIBS file
+CREATE-FILE PIBS TYPE=PROC
+* TODO: compile & catalog PEQS jedi
